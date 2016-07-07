@@ -11,19 +11,30 @@
         android:layout_width="match_parent"
         android:minHeight="?attr/actionBarSize"
         android:background="#0892D0" >
-
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/crosshair"
-            android:onClick="newQuest"/>
+            android:onClick="newQuest" />
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:id="@+id/toolbar_logo"
-            android:src="@drawable/saiyanhair"/>
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_logo"
+                android:src="@drawable/saiyanhair" />
     </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar_top"
+        android:id="@+id/questcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border">
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

@@ -92,7 +92,7 @@
             android:textColor="#ffffff"
             android:background="#0892D0"
             android:textSize="30dp"
-            android:text="GO!"/>
+            android:text="Go!"/>
     </LinearLayout>
 
 </RelativeLayout>
