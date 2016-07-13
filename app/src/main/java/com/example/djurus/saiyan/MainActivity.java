@@ -38,17 +38,15 @@ public class MainActivity extends ListActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent myIntent = new Intent(MainActivity.this, QuestDetailsActivity.class);
+                myIntent.putExtra("questnumber", position);
+                MainActivity.this.startActivity(myIntent);
                 Quest obj = (Quest)adapter.getItem(position);
                 Toast.makeText(getApplicationContext(),obj.getQuestName(), Toast.LENGTH_LONG).show();
             }
         });
 
-        for (int i=0;i<questlist.size();i++){
-            View child = getLayoutInflater().inflate(R.layout.questview, null);
-            TextView text = (TextView) child.findViewById(R.id.questname);
-            text.setText(questlist.get(i).getQuestName());
-            questcontainer.addView(child);
-        }
+
 
 
     }

@@ -16,11 +16,18 @@
             android:layout_height="64dp"
             android:src="@drawable/crosshair"
             android:onClick="newQuest" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Saiyan"
+            android:textSize="32dp"
+            android:textColor="#ffffff"/>
 
         <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_gravity="center"
+                android:layout_gravity="right"
                 android:id="@+id/toolbar_logo"
                 android:src="@drawable/saiyanhair" />
     </android.support.v7.widget.Toolbar>
@@ -30,17 +37,19 @@
         android:layout_below="@+id/toolbar_top"
         android:id="@+id/questcontainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/border">
+        <ListView
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/questcontainer"
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
 
     </LinearLayout>
 
-    <ListView
-        android:layout_below="@+id/questcontainer"
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
+
 
 
 
