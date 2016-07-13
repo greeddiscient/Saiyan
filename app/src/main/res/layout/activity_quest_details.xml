@@ -43,7 +43,7 @@
             android:textStyle="bold"
             android:textSize="32dp"
             android:gravity="center"/>
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -53,11 +53,12 @@
                 android:id="@+id/catimage1"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
                 android:src="@drawable/basketball"/>
             <TextView
                 android:id="@+id/questname"
-                android:layout_width="wrap_content"
+                android:layout_width="275dp"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -66,15 +67,16 @@
                 android:textStyle="bold"
                 android:textColor="#0892D0"
                 android:textSize="20dp"
-                android:layout_weight="1" />
+                android:layout_centerHorizontal="true"/>
 
             <ImageView
                 android:id="@+id/catimage2"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
                 android:src="@drawable/basketball"/>
-        </LinearLayout>
+        </RelativeLayout>
 
         <Button
             android:layout_marginTop="50dp"

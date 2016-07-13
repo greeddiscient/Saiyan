@@ -51,6 +51,7 @@
             android:text="Quest Name"
             android:textSize="20dp"/>
         <EditText
+            android:id="@+id/questname"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,22 +71,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/category0"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="#0892D0"
                 android:src="@drawable/basketball"/>
             <ImageView
+                android:id="@+id/category1"
                 android:layout_marginLeft="10dp"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/golfball"/>
             <ImageView
+                android:id="@+id/category2"
                 android:layout_marginLeft="10dp"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/weights"/>
         </LinearLayout>
         <Button
+            android:id="@+id/savequest"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:layout_width="100dp"
