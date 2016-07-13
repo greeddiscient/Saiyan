@@ -71,6 +71,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:background="#0892D0"
                 android:src="@drawable/basketball"/>
             <ImageView
                 android:layout_marginLeft="10dp"

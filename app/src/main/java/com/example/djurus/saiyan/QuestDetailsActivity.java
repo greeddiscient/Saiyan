@@ -3,11 +3,11 @@ package com.example.djurus.saiyan;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class QuestActivity extends AppCompatActivity {
+public class QuestDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_newquest);
+        setContentView(R.layout.activity_quest_details);
     }
 }
