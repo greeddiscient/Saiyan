@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.djurus.saiyan.QuestActivity">
+    tools:context=".NewQuestActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_top"
@@ -14,6 +14,7 @@
         android:background="#0892D0" >
 
         <ImageView
+            android:id="@+id/backarrow"
             android:layout_width="39dp"
             android:layout_height="39dp"
             android:src="@drawable/backarrow"

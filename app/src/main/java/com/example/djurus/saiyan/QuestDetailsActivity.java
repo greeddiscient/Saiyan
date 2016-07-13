@@ -3,6 +3,7 @@ package com.example.djurus.saiyan;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,6 +26,15 @@ public class QuestDetailsActivity extends AppCompatActivity {
         questlist.add(quest2);
         questlist.add(quest3);
         questlist.add(quest4);
+
+        ImageView backarrow= (ImageView)findViewById(R.id.backarrow);
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         Quest q = questlist.get(questnumber);
         TextView questname = (TextView)findViewById(R.id.questname);
         questname.setText(q.getQuestName());

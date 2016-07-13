@@ -1,16 +1,12 @@
 package com.example.djurus.saiyan;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,8 +37,6 @@ public class MainActivity extends ListActivity {
                 Intent myIntent = new Intent(MainActivity.this, QuestDetailsActivity.class);
                 myIntent.putExtra("questnumber", position);
                 MainActivity.this.startActivity(myIntent);
-                Quest obj = (Quest)adapter.getItem(position);
-                Toast.makeText(getApplicationContext(),obj.getQuestName(), Toast.LENGTH_LONG).show();
             }
         });
 
@@ -53,7 +47,7 @@ public class MainActivity extends ListActivity {
 
     public void newQuest(View view)
     {
-        Intent intent = new Intent(MainActivity.this, QuestActivity.class);
+        Intent intent = new Intent(MainActivity.this, NewQuestActivity.class);
         startActivity(intent);
     }
 }
