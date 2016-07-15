@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:minHeight="?attr/actionBarSize"
-        android:background="#0892D0" >
+        android:background="#0892D0">
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
@@ -23,16 +23,37 @@
             android:text="Saiyan"
             android:textSize="32dp"
             android:textColor="#ffffff"/>
-
         <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="right"
-                android:id="@+id/toolbar_logo"
-                android:src="@drawable/saiyanhair" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_logo"
+            android:src="@drawable/saiyanhair" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="15dp">
+            <TextView
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#xf1da;"
+                android:textSize="36dp"
+                android:textColor="#FFD700"/>
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/profile"
+                android:id="@+id/history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#xf007;"
+                android:textSize="36dp"
+                android:textColor="#FFD700"/>
+        </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_below="@+id/toolbar_top"
         android:id="@+id/questcontainer"
@@ -41,13 +62,21 @@
         android:background="@drawable/border">
         <ListView
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/questcontainer"
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
         </ListView>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/startaquest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start a Quest!"
+            android:textSize="16dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 

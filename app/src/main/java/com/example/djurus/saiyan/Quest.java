@@ -6,6 +6,7 @@ package com.example.djurus.saiyan;
 public class Quest {
     private String questname;
     private String category;
+    private int count;
     public Quest(String questname,String category){
         this.questname=questname;
         this.category=category;
@@ -16,4 +17,11 @@ public class Quest {
     public String getCategory(){
         return category;
     }
+    public int getCount(){
+        return count;
+    }
+    public void incrementCount(){
+        count++;
+    }
+
 }
