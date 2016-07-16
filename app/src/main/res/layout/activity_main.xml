@@ -12,10 +12,10 @@
         android:minHeight="?attr/actionBarSize"
         android:background="#0892D0">
         <ImageView
+            android:id="@+id/newquest"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/crosshair"
-            android:onClick="newQuest" />
+            android:src="@drawable/crosshair" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

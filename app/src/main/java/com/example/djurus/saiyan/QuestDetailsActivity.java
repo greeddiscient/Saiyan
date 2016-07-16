@@ -71,13 +71,7 @@ public class QuestDetailsActivity extends Activity {
             public void onClick(View v) {
                 q.incrementCount();
                 String jsonQuestList = new Gson().toJson(questlist);
-
-                appSharedPrefs = PreferenceManager
-                        .getDefaultSharedPreferences(getApplicationContext());
-                prefsEditor = appSharedPrefs.edit();
-                prefsEditor.putString("questlist", jsonQuestList);
-                prefsEditor.commit();
-
+                appSharedPrefs.edit().putString("questlist", jsonQuestList).commit();
                 Intent myIntent = new Intent(QuestDetailsActivity.this, MainActivity.class);
                 QuestDetailsActivity.this.startActivity(myIntent);
             }

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -29,19 +30,29 @@ public class MainActivity extends ListActivity {
     private ArrayList<Quest> questlist= new ArrayList<Quest>();
     private QuestAdapter adapter;
     private TextView startaquest;
+    private SharedPreferences appSharedPrefs;
+    private Typeface fontawesome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Typeface font = Typeface.createFromAsset( getApplicationContext().getAssets(), "fontawesome-webfont.ttf" );
+        fontawesome = Typeface.createFromAsset( getApplicationContext().getAssets(), "fontawesome-webfont.ttf" );
         TextView history = (TextView)findViewById(R.id.history);
-        history.setTypeface(font);
+        history.setTypeface(fontawesome);
         TextView profile = (TextView)findViewById(R.id.profile);
-        profile.setTypeface(font);
+        profile.setTypeface(fontawesome);
 
-        SharedPreferences appSharedPrefs = PreferenceManager
-                .getDefaultSharedPreferences(this.getApplicationContext());
+        ImageView newquest = (ImageView) findViewById(R.id.newquest);
+        newquest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewQuestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String jsonQuestList=appSharedPrefs.getString("questlist","");
         Gson gson=new Gson();
         Type type = new TypeToken<ArrayList<Quest>>(){}.getType();
@@ -60,7 +71,6 @@ public class MainActivity extends ListActivity {
                     Intent myIntent = new Intent(MainActivity.this, QuestDetailsActivity.class);
                     myIntent.putExtra("questnumber", position);
                     MainActivity.this.startActivity(myIntent);
-
                 }
             });
         }
@@ -77,26 +87,32 @@ public class MainActivity extends ListActivity {
         public View getView(final int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rowView = inflater.inflate(R.layout.questview, parent, false);
-            TextView textView = (TextView) rowView.findViewById(R.id.questname);
-            ImageView imageView = (ImageView) rowView.findViewById(R.id.category);
-            textView.setText(values.get(position).getQuestName());
-            Typeface font = Typeface.createFromAsset( getContext().getAssets(), "fontawesome-webfont.ttf" );
-            TextView icon = (TextView)rowView.findViewById(R.id.icon);
-            icon.setTypeface(font);
-            TextView count = (TextView)rowView.findViewById(R.id.count);
+            View questView = inflater.inflate(R.layout.questview, parent, false);
+
+            TextView questName = (TextView) questView.findViewById(R.id.questname);
+            questName.setText(values.get(position).getQuestName());
+
+            TextView counticon = (TextView)questView.findViewById(R.id.counticon);
+            counticon.setTypeface(fontawesome);
+
+            TextView count = (TextView)questView.findViewById(R.id.count);
             String questcount= String.valueOf(values.get(position).getCount());
             count.setText(questcount);
+
+            ImageView categoryIcon = (ImageView) questView.findViewById(R.id.category);
             String category = values.get(position).getCategory();
             if (category.equals("basketball")) {
-                imageView.setImageResource(R.drawable.basketball);
+                categoryIcon.setImageResource(R.drawable.basketball);
             } else if (category.equals("golf")) {
-                imageView.setImageResource(R.drawable.golfball);
+                categoryIcon.setImageResource(R.drawable.golfball);
             }
             else if (category.equals("weights")) {
-                imageView.setImageResource(R.drawable.weights);
+                categoryIcon.setImageResource(R.drawable.weights);
             }
-            imageView.setOnClickListener(new View.OnClickListener() {
+
+            TextView deletequest = (TextView)questView.findViewById(R.id.deletequest);
+            deletequest.setTypeface(fontawesome);
+            deletequest.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
@@ -107,12 +123,8 @@ public class MainActivity extends ListActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             values.remove(position);
                             notifyDataSetChanged();
-                            SharedPreferences appSharedPrefs = PreferenceManager
-                                    .getDefaultSharedPreferences(context);
-                            SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
                             String jsonQuestList = new Gson().toJson(values);
-                            prefsEditor.putString("questlist", jsonQuestList);
-                            prefsEditor.commit();
+                            appSharedPrefs.edit().putString("questlist", jsonQuestList).commit();
                             if (values.size()==0){
                                 startaquest = (TextView)findViewById(R.id.startaquest);
                                 startaquest.setVisibility(View.VISIBLE);
@@ -121,13 +133,7 @@ public class MainActivity extends ListActivity {
                     adb.show();
                 }
             });
-            return rowView;
+            return questView;
         }
-    }
-
-    public void newQuest(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, NewQuestActivity.class);
-        startActivity(intent);
     }
 }
