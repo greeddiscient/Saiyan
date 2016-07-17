@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/questname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/deletequest"
+            android:textColor="#4c4c4c"
+            android:textSize="20dp"
+            android:text="Quest Name Goes Here" />
+        <TextView
+            android:id="@+id/questcompletedicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="&#xf00c;"
+            android:textSize="32dp"
+            android:textColor="#00ff00"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/datecompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:text="Completed on: 1-37-2016"
+            android:textColor="#0892D0"
+            android:textSize="16dp" />
+        <ImageView
+            android:id="@+id/category"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/basketball"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+</LinearLayout>

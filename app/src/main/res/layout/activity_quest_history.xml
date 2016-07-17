@@ -3,54 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.djurus.saiyan.MainActivity">
+
+    tools:context=".QuestHistoryActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_top"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:minHeight="?attr/actionBarSize"
-        android:background="#0892D0">
+        android:background="#0892D0" >
+
         <ImageView
-            android:id="@+id/newquest"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/crosshair" />
+            android:id="@+id/backarrow"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:src="@drawable/backarrow"
+            android:layout_gravity="left"
+
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Saiyan"
+            android:text="Quest Log"
             android:textSize="32dp"
             android:textColor="#ffffff"/>
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:id="@+id/toolbar_logo"
-            android:src="@drawable/saiyanhair" />
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginRight="15dp">
-            <TextView
-                android:id="@+id/history"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&#xf1da;"
-                android:textSize="36dp"
-                android:textColor="#FFD700"/>
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@+id/history"
-                android:id="@+id/profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&#xf007;"
-                android:textSize="36dp"
-                android:textColor="#FFD700"/>
-        </RelativeLayout>
+            android:layout_gravity= "right"
+            android:src="@drawable/saiyanhair"/>
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
@@ -68,18 +51,14 @@
         </ListView>
         <TextView
             android:visibility="gone"
-            android:id="@+id/startaquest"
+            android:id="@+id/noquestcompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start a Quest!"
+            android:text="No Quest Completed"
             android:textSize="16dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
-
-
-
-
 
 </RelativeLayout>

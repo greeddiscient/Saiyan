@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -38,10 +39,25 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
 
         fontawesome = Typeface.createFromAsset( getApplicationContext().getAssets(), "fontawesome-webfont.ttf" );
+
         TextView history = (TextView)findViewById(R.id.history);
         history.setTypeface(fontawesome);
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, QuestHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
         TextView profile = (TextView)findViewById(R.id.profile);
         profile.setTypeface(fontawesome);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         ImageView newquest = (ImageView) findViewById(R.id.newquest);
         newquest.setOnClickListener(new View.OnClickListener() {
@@ -53,11 +69,16 @@ public class MainActivity extends ListActivity {
         });
 
         appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String jsonQuestList=appSharedPrefs.getString("questlist","");
-        Gson gson=new Gson();
-        Type type = new TypeToken<ArrayList<Quest>>(){}.getType();
-        questlist = gson.fromJson(jsonQuestList, type);
-        if (questlist==null){
+
+
+
+        if(appSharedPrefs.contains("questlist")){
+            String jsonQuestList=appSharedPrefs.getString("questlist","");
+            Gson gson=new Gson();
+            Type type = new TypeToken<ArrayList<Quest>>(){}.getType();
+            questlist = gson.fromJson(jsonQuestList, type);
+        }
+        if (questlist.size()==0){
             startaquest = (TextView)findViewById(R.id.startaquest);
             startaquest.setVisibility(View.VISIBLE);
         }
@@ -74,6 +95,8 @@ public class MainActivity extends ListActivity {
                 }
             });
         }
+
+
     }
     public class QuestAdapter extends ArrayAdapter<Quest>{
         private final ArrayList<Quest> values;

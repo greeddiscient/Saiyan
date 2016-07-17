@@ -16,9 +16,11 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class QuestDetailsActivity extends Activity {
-    private ArrayList<Quest> questlist= new ArrayList<Quest>();
+    private ArrayList<Quest> questList= new ArrayList<Quest>();
+    private ArrayList<Quest> questHistoryList= new ArrayList<Quest>();
     private Quest q;
     private SharedPreferences appSharedPrefs;
     private SharedPreferences.Editor prefsEditor;
@@ -41,13 +43,15 @@ public class QuestDetailsActivity extends Activity {
         appSharedPrefs = PreferenceManager
                 .getDefaultSharedPreferences(this.getApplicationContext());
         String jsonQuestList=appSharedPrefs.getString("questlist","");
+
         Gson gson=new Gson();
         Type type = new TypeToken<ArrayList<Quest>>(){}.getType();
-        questlist = gson.fromJson(jsonQuestList, type);
-
-
-
-        q = questlist.get(questnumber);
+        questList = gson.fromJson(jsonQuestList, type);
+        if (appSharedPrefs.contains("questHistoryList")){
+            String jsonQuestHistoryList=appSharedPrefs.getString("questHistoryList","");
+            questHistoryList = gson.fromJson(jsonQuestHistoryList, type);
+        }
+        q = questList.get(questnumber);
         TextView questname = (TextView)findViewById(R.id.questname);
         questname.setText(q.getQuestName());
         ImageView catimage1 = (ImageView)findViewById(R.id.catimage1);
@@ -70,8 +74,13 @@ public class QuestDetailsActivity extends Activity {
             @Override
             public void onClick(View v) {
                 q.incrementCount();
-                String jsonQuestList = new Gson().toJson(questlist);
+                Date d = new Date();
+                q.setDatecompleted(d);
+                questHistoryList.add(q);
+                String jsonQuestList = new Gson().toJson(questList);
+                String jsonQuestHistoryList = new Gson().toJson(questHistoryList);
                 appSharedPrefs.edit().putString("questlist", jsonQuestList).commit();
+                appSharedPrefs.edit().putString("questHistoryList", jsonQuestHistoryList).commit();
                 Intent myIntent = new Intent(QuestDetailsActivity.this, MainActivity.class);
                 QuestDetailsActivity.this.startActivity(myIntent);
             }
