@@ -9,6 +9,8 @@ public class Quest {
     private String questname;
     private String category;
     private int count;
+    private int maxscore;
+    private int score;
     private Date dateCompleted;
     public Quest(String questname,String category){
         this.questname=questname;
@@ -31,5 +33,17 @@ public class Quest {
     }
     public Date getDateCompleted(){
         return dateCompleted;
+    }
+    public void setMaxscore(int score){
+        maxscore=score;
+    }
+    public int getMaxscore(){
+        return maxscore;
+    }
+    public void setScore(int questscore){
+        score=questscore;
+    }
+    public int getScore(){
+        return score;
     }
 }

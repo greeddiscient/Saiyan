@@ -35,13 +35,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/datecompleted"
+            android:id="@+id/datecompletedtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="10dp"
-            android:text="Completed on: 1-37-2016"
+            android:text="Completed on:"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/datecompleted"
+            android:layout_toRightOf="@+id/datecompletedtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="1-37-2016"
+            android:textColor="#0892D0"
+            android:textSize="16dp"/>
+        <TextView
+            android:id="@+id/questscoretext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/datecompleted"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="16dp"
+            android:textColor="#ffffff"
+            android:text="Score:"/>
+        <TextView
+            android:id="@+id/questscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/questscoretext"
+            android:layout_marginLeft="5dp"
+            android:text="7 / 10"
             android:textColor="#0892D0"
             android:textSize="16dp" />
         <ImageView

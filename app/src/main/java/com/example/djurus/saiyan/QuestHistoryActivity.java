@@ -78,18 +78,25 @@ public class QuestHistoryActivity extends AppCompatActivity {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View questHistoryView = inflater.inflate(R.layout.questhistoryview, parent, false);
 
+            Quest currentQuest = values.get(values.size()-1-position);
+
             TextView questName = (TextView) questHistoryView.findViewById(R.id.questname);
-            questName.setText(values.get(position).getQuestName());
+            questName.setText(currentQuest.getQuestName());
 
             TextView questCompletedIcon = (TextView)questHistoryView.findViewById(R.id.questcompletedicon);
             questCompletedIcon.setTypeface(fontawesome);
 
-            String date = new SimpleDateFormat("MM-dd-yyyy").format(values.get(position).getDateCompleted());
+            String date = new SimpleDateFormat("MM-dd-yyyy").format(currentQuest.getDateCompleted());
             TextView dateCompleted = (TextView)questHistoryView.findViewById(R.id.datecompleted);
-            dateCompleted.setText("Completed on: " + date);
+            dateCompleted.setText(date);
+
+            TextView questScore = (TextView)questHistoryView.findViewById(R.id.questscore);
+            int score = currentQuest.getScore();
+            int maxScore = currentQuest.getMaxscore();
+            questScore.setText(score+" / "+maxScore);
 
             ImageView categoryIcon = (ImageView) questHistoryView.findViewById(R.id.category);
-            String category = values.get(position).getCategory();
+            String category = currentQuest.getCategory();
             if (category.equals("basketball")) {
                 categoryIcon.setImageResource(R.drawable.basketball);
             } else if (category.equals("golf")) {

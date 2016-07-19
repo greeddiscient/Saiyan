@@ -23,11 +23,13 @@ public class NewQuestActivity extends AppCompatActivity {
     private ArrayList<Quest> questlist= new ArrayList<Quest>();
     private SharedPreferences appSharedPrefs;
     private SharedPreferences.Editor prefsEditor;
-    String category="basketball";
-    EditText questname;
-    ImageView category0;
-    ImageView category1;
-    ImageView category2;
+    private String category="basketball";
+    private EditText questname;
+    private EditText questmaxscore;
+    private ImageView category0;
+    private ImageView category1;
+    private ImageView category2;
+    private int maxscore=10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,7 @@ public class NewQuestActivity extends AppCompatActivity {
 
         Button savequest= (Button)findViewById(R.id.savequest);
         questname   = (EditText)findViewById(R.id.questname);
+        questmaxscore = (EditText)findViewById(R.id.questmaxscore);
         savequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +64,15 @@ public class NewQuestActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"You can't go on an empty QUEST", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    String maxscorestr="";
+                    if (questmaxscore.getText().toString().equals("")){
+                        maxscorestr+=maxscore;
+                    }
+                    else{
+                        maxscorestr=questmaxscore.getText().toString();
+                    }
                     Quest q = new Quest(questname.getText().toString(),category);
+                    q.setMaxscore(Integer.valueOf(maxscorestr));
                     questlist.add(q);
                     String jsonQuestList = new Gson().toJson(questlist);
                     prefsEditor.putString("questlist", jsonQuestList);

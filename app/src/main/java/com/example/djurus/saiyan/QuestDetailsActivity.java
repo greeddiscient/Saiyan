@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,6 +57,8 @@ public class QuestDetailsActivity extends Activity {
         questname.setText(q.getQuestName());
         ImageView catimage1 = (ImageView)findViewById(R.id.catimage1);
         ImageView catimage2 = (ImageView)findViewById(R.id.catimage2);
+        TextView questmaxscore= (TextView) findViewById(R.id.maxscore);
+        questmaxscore.setText("/ "+q.getMaxscore());
         String cat = q.getCategory();
         if (cat.equals("basketball")){
             catimage1.setImageDrawable(getResources().getDrawable(R.drawable.basketball));
@@ -73,6 +76,8 @@ public class QuestDetailsActivity extends Activity {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText questscore = (EditText)findViewById(R.id.questscore);
+                q.setScore(Integer.valueOf(questscore.getText().toString()));
                 q.incrementCount();
                 Date d = new Date();
                 q.setDatecompleted(d);
