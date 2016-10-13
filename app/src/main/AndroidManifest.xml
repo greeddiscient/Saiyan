@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".NewQuestActivity" />
         <activity android:name=".QuestDetailsActivity" />
-        <activity android:name=".QuestHistoryActivity"></activity>
+        <activity android:name=".QuestHistoryActivity" />
+        <activity android:name=".SplashActivity"></activity>
     </application>
 
 </manifest>

@@ -78,6 +78,7 @@ public class QuestHistoryActivity extends AppCompatActivity {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View questHistoryView = inflater.inflate(R.layout.questhistoryview, parent, false);
 
+            //reverse the ordering of quests in history
             Quest currentQuest = values.get(values.size()-1-position);
 
             TextView questName = (TextView) questHistoryView.findViewById(R.id.questname);
