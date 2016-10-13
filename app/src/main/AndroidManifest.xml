@@ -11,16 +11,21 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".NewQuestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".QuestDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".QuestHistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NewQuestActivity" />
-        <activity android:name=".QuestDetailsActivity" />
-        <activity android:name=".QuestHistoryActivity" />
-        <activity android:name=".SplashActivity"></activity>
     </application>
 
 </manifest>
