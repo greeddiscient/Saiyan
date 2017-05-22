@@ -26,15 +26,16 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"/>
+
     <TextView
-        android:layout_below="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The Ultimate Quest Going App"
-        android:textSize="26dp"
-        android:textColor="#fff"
-        android:textStyle="italic"
+        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:textColor="#fff"
+        android:textSize="26dp"
+        android:text="Life's RPG"
+        android:textStyle="italic" />
 
 </RelativeLayout>

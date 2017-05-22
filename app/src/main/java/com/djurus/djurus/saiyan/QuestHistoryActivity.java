@@ -1,9 +1,6 @@
-package com.example.djurus.saiyan;
+package com.djurus.djurus.saiyan;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
@@ -12,12 +9,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.djurus.saiyan.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -61,6 +58,8 @@ public class QuestHistoryActivity extends AppCompatActivity {
             ListView list = (ListView) findViewById(android.R.id.list);
             list.setAdapter(adapter);
         }
+
+
 
     }
 

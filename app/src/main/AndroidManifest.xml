@@ -9,23 +9,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".NewQuestActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".QuestDetailsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".QuestHistoryActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".SplashActivity">
+            android:name="com.djurus.djurus.saiyan.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.djurus.djurus.saiyan.NewQuestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.djurus.djurus.saiyan.QuestDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.djurus.djurus.saiyan.QuestHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.djurus.djurus.saiyan.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.djurus.djurus.saiyan.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme" />
+        <activity android:name="com.djurus.djurus.saiyan.ZzzActivity"></activity>
     </application>
 
 </manifest>

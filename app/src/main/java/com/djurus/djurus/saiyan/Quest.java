@@ -1,4 +1,4 @@
-package com.example.djurus.saiyan;
+package com.djurus.djurus.saiyan;
 
 import java.util.Date;
 

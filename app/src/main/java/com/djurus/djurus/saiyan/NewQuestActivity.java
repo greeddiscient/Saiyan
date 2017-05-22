@@ -1,9 +1,8 @@
-package com.example.djurus.saiyan;
+package com.djurus.djurus.saiyan;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.djurus.saiyan.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

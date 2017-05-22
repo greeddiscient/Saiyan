@@ -1,8 +1,10 @@
-package com.example.djurus.saiyan;
+package com.djurus.djurus.saiyan;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.djurus.saiyan.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MenuActivity.class));
             }
         }, 1500);
     }
@@ -27,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MenuActivity.class));
             }
         }, 1500);
     }
